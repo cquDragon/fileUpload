@@ -23,7 +23,7 @@ import java.io.IOException;
 public class HttpClientUtil {
     public final static String POST_URL = "http://www.baidu.com";
 
-    public static String doPOST(String jsonStr) throws Exception {
+    public static String doPOST(String jsonStr) {
         CloseableHttpClient client = HttpClients.createDefault();
         HttpPost post = new HttpPost(POST_URL);
         StringEntity stringEntity = new StringEntity(jsonStr, ContentType.APPLICATION_JSON);
@@ -64,11 +64,7 @@ public class HttpClientUtil {
     }
 
     public static void main(String[] args) {
-        try {
-            String result = HttpClientUtil.doPOST("{\"a\":\"b\"}");
-            System.out.println(result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String result = HttpClientUtil.doPOST("{\"a\":\"b\"}");
+        System.out.println(result);
     }
 }

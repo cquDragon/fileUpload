@@ -128,7 +128,7 @@ public class FileDealUtil {
         }
     }
 
- public static void main(String[] args) {
+ public static void main2(String[] args) {
        //* FileDealUtil.splitZip("/Users/xuanlong/Desktop/ppt模版.zip", "/Users/xuanlong/Desktop/test/");*//
      FileDealUtil.splitZip("/Users/xuanlong/Desktop/file-upload-example-1.0.0-SNAPSHOT.jar.zip","/Users/xuanlong/Desktop/test2/");
        // System.out.println(FileDealUtil.getSortedFiles("/Users/xuanlong/Desktop/test/"));

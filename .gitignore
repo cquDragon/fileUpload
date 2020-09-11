@@ -2,6 +2,7 @@
 .idea
 build
 out
+target
 # Compiled class file
 *.class
 
@@ -15,7 +16,6 @@ out
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear

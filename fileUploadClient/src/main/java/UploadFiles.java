@@ -19,6 +19,7 @@ public class UploadFiles {
         //4.多线程方式上传文件 TODO
         //5.所有文件上传成功后执行文件合并 TODO
         String pathSrc = "/Users/xuanlong/Desktop/项目文档";
+        String serverDestFilePath = "/Users/xuanlong/Desktop/download/";
         String zipFileName = pathSrc + ".zip";
         String destFileSrc = pathSrc + "/result/";
         ZipCompress zipCompress = new ZipCompress(zipFileName, pathSrc);
@@ -33,7 +34,7 @@ public class UploadFiles {
 
         File destFile = new File(destFileSrc);
 
-        String serverDestFilePath = "/Users/xuanlong/Desktop/download/";
+
         for (File file : destFile.listFiles()) {
             HttpClientUtil.postUploadFile(serverDestFilePath, file);
         }

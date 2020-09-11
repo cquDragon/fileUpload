@@ -24,11 +24,12 @@ import java.util.HashMap;
  * @version: 0.0.1
  */
 public class HttpClientUtil {
-    public final static String POST_URL = "http://localhost:8081/file/baseQuery";
+    public static final String POST_URL = "http://localhost:8081/file/baseQuery";
 
-    public static String doPOST(String jsonStr) {
+
+    public static String doPOST(String serverUrl, String jsonStr) {
         CloseableHttpClient client = HttpClients.createDefault();
-        HttpPost post = new HttpPost(POST_URL);
+        HttpPost post = new HttpPost(serverUrl);
         StringEntity stringEntity = new StringEntity(jsonStr, ContentType.APPLICATION_JSON);
         post.setEntity(stringEntity);
         //响应内容
@@ -63,7 +64,10 @@ public class HttpClientUtil {
             }
         }
         return responseContent;
+    }
 
+    public static String doPOST(String jsonStr) {
+       return doPOST(POST_URL,jsonStr);
     }
 
     public static void main(String[] args) {
@@ -82,6 +86,9 @@ public class HttpClientUtil {
             postMap.put("baseStr", baseStr);
             postMap.put("filePath", serverDestFilePath);
             resultStr = HttpClientUtil.doPOST(JSON.toJSONString(postMap));
+            if(resultStr.equals("success")){
+                System.out.println(file.getName()+"---上传成功");
+            }
         } catch (Exception e) {
             System.out.println(file.getName()+"---上传失败");
             e.printStackTrace();

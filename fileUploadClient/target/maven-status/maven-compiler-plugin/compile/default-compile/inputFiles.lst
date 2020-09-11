@@ -1,2 +1,5 @@
-/Users/xuanlong/Desktop/peiban/fileUpload/fileUploadClient/src/main/java/utils/HttpClient.java
-/Users/xuanlong/Desktop/peiban/fileUpload/fileUploadClient/src/main/java/Test.java
+/Users/xuanlong/Desktop/peiban/fileUpload/fileUploadClient/src/main/java/utils/FileDealUtil.java
+/Users/xuanlong/Desktop/peiban/fileUpload/fileUploadClient/src/main/java/utils/FileUtil.java
+/Users/xuanlong/Desktop/peiban/fileUpload/fileUploadClient/src/main/java/utils/DateUtil.java
+/Users/xuanlong/Desktop/peiban/fileUpload/fileUploadClient/src/main/java/utils/ZipCompress.java
+/Users/xuanlong/Desktop/peiban/fileUpload/fileUploadClient/src/main/java/utils/HttpClientUtil.java

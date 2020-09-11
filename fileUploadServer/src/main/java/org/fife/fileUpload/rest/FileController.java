@@ -18,6 +18,7 @@ public class FileController {
 
     @PostMapping("/baseQuery")
     public String upFileByBase64(@RequestBody String base) throws Exception {
+        System.out.println(base);
         JSONObject jsonObject = JSONObject.parseObject(base);
         String name = jsonObject.getString("name");
         String pathStr = "" ;

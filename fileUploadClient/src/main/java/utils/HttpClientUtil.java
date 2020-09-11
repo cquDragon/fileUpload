@@ -1,5 +1,6 @@
 package utils;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
@@ -11,7 +12,9 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 /**
  * @author ：xuanlong
@@ -21,7 +24,7 @@ import java.io.IOException;
  * @version: 0.0.1
  */
 public class HttpClientUtil {
-    public final static String POST_URL = "http://www.baidu.com";
+    public final static String POST_URL = "http://localhost:8081/file/baseQuery";
 
     public static String doPOST(String jsonStr) {
         CloseableHttpClient client = HttpClients.createDefault();
@@ -64,7 +67,25 @@ public class HttpClientUtil {
     }
 
     public static void main(String[] args) {
-        String result = HttpClientUtil.doPOST("{\"a\":\"b\"}");
-        System.out.println(result);
+
+        String serverDestFilePath = "/Users/xuanlong/Desktop/download/";
+        File file = new File("/Users/xuanlong/Desktop/peiban/demo/pom.xml");
+        postUploadFile(serverDestFilePath, file);
+    }
+
+    public static String postUploadFile(String serverDestFilePath, File file) {
+        String resultStr = "";
+        try {
+            String baseStr = FileUtil.encodeBase64File(file.getAbsolutePath());
+            HashMap<String, String> postMap = new HashMap<String, String>(16);
+            postMap.put("name", file.getName());
+            postMap.put("baseStr", baseStr);
+            postMap.put("filePath", serverDestFilePath);
+            resultStr = HttpClientUtil.doPOST(JSON.toJSONString(postMap));
+        } catch (Exception e) {
+            System.out.println(file.getName()+"---上传失败");
+            e.printStackTrace();
+        }
+        return  resultStr;
     }
 }

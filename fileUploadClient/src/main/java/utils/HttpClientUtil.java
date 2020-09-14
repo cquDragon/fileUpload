@@ -71,9 +71,12 @@ public class HttpClientUtil {
     }
 
     public static void main(String[] args) {
-
+        //测试上传功能
+        //serverDestFilePath服务端的接收地址
         String serverDestFilePath = "/Users/xuanlong/Desktop/download/";
+        //文件的地址
         File file = new File("/Users/xuanlong/Desktop/peiban/demo/pom.xml");
+        //执行上传
         postUploadFile(serverDestFilePath, file);
     }
 
